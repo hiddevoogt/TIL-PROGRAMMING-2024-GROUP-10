@@ -143,3 +143,12 @@ def plot_travelminutes():
 
     # Show the figure
     fig.show()
+
+
+    heatmap_data = travelmode_animation.pivot(index='RegionCharacteristics', columns='Period', values='Time_Travelled_Minutes_Per_Day')
+
+    fig = px.imshow(heatmap_data, 
+                    labels=dict(x="Period", y="RegionCharacteristics", color="Travel Time (min/day)"), 
+                    aspect="auto")
+
+    fig.show()
