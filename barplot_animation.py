@@ -1,5 +1,5 @@
 import plotly.express as px
-def barplotanimation(dataset, column, order):
+def barplotanimation(dataset, column, order, yaxis_name):
 
     # Group by RegionCharacteristics and TravelModes, and sum the distances
     kmtot = dataset.groupby(['RegionCharacteristics', 'TravelModes', 'Period'])[column].sum().reset_index()
@@ -11,7 +11,9 @@ def barplotanimation(dataset, column, order):
                 color='TravelModes',  # Different colors for each travel mode
                 barmode='group',
                 animation_frame = "Period",
-                category_orders={"RegionCharacteristics": order}  # Explicitly set category order
+                category_orders={"RegionCharacteristics": order},  # Explicitly set category order
+                labels={column: yaxis_name,
+                        'RegionCharacteristics': 'Urbanization level'},  # Custom y-axis label                
                 )  # Order categories)  # Group bars next to each other
 
     # Adjust the animation speed (e.g., 2000 milliseconds per frame)
