@@ -1,9 +1,0 @@
-prefix=c:/Users/hidde/OneDrive/Documenten/TIL-PROGRAMMING-2024-GROUP-10/.conda/Library 
-exec_prefix=${prefix}
-libdir=${exec_prefix}/lib
-includedir=${prefix}/include
-
-Name: OpenSSL
-Description: Secure Sockets Layer and cryptography libraries and tools
-Requires: libssl libcrypto
-Version: 3.3.2 
