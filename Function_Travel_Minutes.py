@@ -33,7 +33,7 @@ def plot_travelminutes():
         font=dict(family="Arial", size=14)
     )
 
-    # Display line plot
+   
     fig.show()
 
     # Group and aggregate data for the heatmap
