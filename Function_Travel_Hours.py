@@ -22,7 +22,7 @@ def plot_travelminutes():
             "Time_Travelled_Hours_Per_Year": "Travel Time (Hours/Year)",
             "RegionCharacteristics": "Region Characteristics"
         },
-        title="Travel Time Over Time by Region",
+        title="Lineplot: Travel Time Over Time by Region",
         markers=True
     )
     # Layout of graph
@@ -48,6 +48,10 @@ def plot_travelminutes():
 
     fig = px.imshow(heatmap_data, 
                     labels=dict(x="Period", y="RegionCharacteristics", color="Travel Time (hours/year)"), 
-                    aspect="auto")
+                    aspect="auto", title = "Heatmap: Travel Time Over Time by Region")
+    
+    #Layout of the lineplot
+    fig.update_layout(title_font=dict(size=20), font=dict(family="Arial", size=14),
+        title_x=0.5,)
 
     fig.show()
