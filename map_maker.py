@@ -11,8 +11,8 @@ def generate_map(filepath):
 
     # Set CRS if not defined and convert to EPSG:28992
     if gemeenten.crs is None:
-        gemeenten = gemeenten.set_crs(epsg=28992)
-    gemeenten = gemeenten.to_crs(epsg=28992)
+        gemeenten = gemeenten.set_crs(epsg=4326)
+    gemeenten = gemeenten.to_crs(epsg=4326)
 
     # Handle missing 'STED' values if necessary
     # For example, fill NaN with a default value or remove such rows
@@ -63,7 +63,7 @@ def generate_map(filepath):
 
     # Add a centered title and adjust layout
     fig.update_layout(
-        title_text='Address Density per Municipality in 2020',
+        title_text='Urbanisation level per Municipality in 2020',
         title_x=0.5,
         margin={"r":0, "t":50, "l":0, "b":0},
     )
