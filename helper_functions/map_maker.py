@@ -1,5 +1,22 @@
 def generate_map(filepath):
 
+    """
+    Generates a choropleth map visualizing urbanization levels across municipalities.
+
+    Args:
+        filepath (str): Path to the shapefile containing municipality data.
+
+    Returns:
+        None: Displays an interactive map of municipalities with urbanization levels.
+
+    Notes:
+        - Loads municipality data, sets and converts the coordinate reference system (CRS) if needed.
+        - Fills missing urbanization ('STED') values with 0, filters for values between 0 and 5.
+        - Converts the GeoDataFrame to GeoJSON for use with Plotly.
+        - Creates a choropleth map with hover data, custom color scale, and integer ticks for urbanization levels.
+        - Centers the map on the Netherlands with a title.
+    """
+
     import pandas as pd
     import geopandas as gpd
     import matplotlib.pyplot as plt

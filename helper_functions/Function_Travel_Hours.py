@@ -5,6 +5,20 @@ def plot_travelminutes():
     import pandas as pd
     import plotly.express as px
 
+    """
+    Generates visualizations to analyze the impact of COVID-19 on travel time across different urbanization levels.
+
+    This function reads travel data, groups it by urbanization level and period, and creates:
+        1. A line plot showing travel time over years across urbanization levels.
+        2. A heatmap displaying travel time distribution over time and urbanization levels.
+
+    Returns:
+        None: Displays a line plot and a heatmap.
+
+    Notes:
+        - The line plot shows the yearly travel time trend by urbanization level.
+        - The heatmap visualizes travel time distribution by period and region characteristics.
+    """
     
     df = pd.read_csv("values_named_clean_mobility_data.csv")
 

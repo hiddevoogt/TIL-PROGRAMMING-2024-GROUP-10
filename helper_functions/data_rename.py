@@ -2,6 +2,25 @@ import pandas as pd
 
 def make_named_clean_dataset(dataset_unnamed):
 
+    """
+    Cleans and renames columns in a dataset, mapping codes to descriptive names for readability.
+
+    Args:
+        dataset_unnamed (pd.DataFrame): DataFrame with unnamed columns that need to be mapped to 
+            descriptive labels.
+
+    Returns:
+        pd.DataFrame: A cleaned DataFrame with renamed columns, mapped values for easier interpretation, 
+            and filtered data for specific conditions.
+    
+    Notes:
+        - Columns for travel motives, population groups, travel modes, margins, region characteristics, 
+          and periods are mapped to readable names.
+        - Filters the dataset to include only "Population 6 years or older" and data with "Value" in 
+          the margins column.
+        - Retains data with "urbanised" in the 'RegionCharacteristics' column.
+        - Drops rows with missing values and returns the cleaned DataFrame.
+    """
 
     data = dataset_unnamed
 

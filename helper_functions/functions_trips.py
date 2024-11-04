@@ -2,6 +2,16 @@
 
 
 def trips_per_year_total_and_period(data):  
+
+    """
+    Generates a bar plot showing total trips per year by period.
+
+    Args:
+        data (pd.DataFrame): DataFrame containing 'Period', 'Trips_Per_Year', and 'TravelModes' columns.
+
+    Returns:
+        None: Displays a bar plot filtered for the 'Total' travel mode.
+    """
     #importing useful libraries 
     import pandas as pd
     import seaborn as sns
@@ -21,6 +31,17 @@ def trips_per_year_total_and_period(data):
 
 #function 2
 def trips_per_yearby_travel_mode_and_period(data):
+    
+    """
+    Generates a bar plot showing trips per year by travel mode and period.
+
+    Args:
+        data (pd.DataFrame): DataFrame containing 'Period', 'Trips_Per_Year', and 'TravelModes' columns.
+
+    Returns:
+        None: Displays a bar plot excluding the 'Total' travel mode.
+    """
+
     #importing useful libraries 
     import pandas as pd
     import seaborn as sns
@@ -40,6 +61,16 @@ def trips_per_yearby_travel_mode_and_period(data):
 
 #function 3
 def line_plot_trips(data): 
+
+    """
+    Generates a line plot of trips per year by travel mode and period.
+
+    Args:
+        data (pd.DataFrame): DataFrame containing 'Period', 'Trips_Per_Year', and 'TravelModes' columns.
+
+    Returns:
+        None: Displays a line plot excluding the 'Total' travel mode.
+    """
     #importing useful libraries 
     import pandas as pd
     import seaborn as sns
@@ -59,6 +90,17 @@ def line_plot_trips(data):
 
 #function 4
 def area_chart_trips(data): 
+
+    """
+    Generates a stacked area chart of trips per year by travel mode and period.
+
+    Args:
+        data (pd.DataFrame): DataFrame containing 'Period', 'Trips_Per_Year', and 'TravelModes' columns.
+
+    Returns:
+        None: Displays a stacked area chart showing trips per year by travel mode over time.
+    """
+
     #importing useful libraries 
     import pandas as pd
     import seaborn as sns

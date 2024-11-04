@@ -1,6 +1,17 @@
 import pandas as pd
 import plotly.express as px
 def passenger_km_plot(df):
+    
+    """
+    Generates a line plot showing passenger kilometers traveled per year by urbanization level.
+
+    Args:
+        df (pd.DataFrame): DataFrame containing 'Period', 'Population', 'TravelMotives', 
+            'TravelModes', 'Margins', 'RegionCharacteristics', and 'Distance_Travelled_PassengerKm_Per_Year' columns.
+
+    Returns:
+        None: Displays a line plot for passenger kilometers per year by urbanization level.
+    """
 
     df_total = df[
         (df['Population'] == 'Population 6 years or older') &
@@ -36,6 +47,17 @@ def passenger_km_plot(df):
     fig.show()
 
 def passenger_prop_plot(df):
+
+    """
+    Generates an area plot showing the proportion of passenger kilometers traveled per day by urbanization level over time.
+
+    Args:
+        df (pd.DataFrame): DataFrame containing 'Period', 'Population', 'TravelMotives', 
+            'TravelModes', 'Margins', 'RegionCharacteristics', and 'Distance_Travelled_PassengerKm_Per_Day' columns.
+
+    Returns:
+        None: Displays an area plot for passenger kilometers per day by urbanization level.
+    """
     
     df_total = df[
         (df['Population'] == 'Population 6 years or older') &

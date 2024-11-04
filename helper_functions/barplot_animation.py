@@ -2,6 +2,20 @@ import plotly.express as px
 import pandas as pd
 
 def barplotanimation(dataset, column, yaxis_name):
+    
+    """
+    Creates an animated bar plot to show data by urbanization level and travel mode over time.
+
+    Args:
+        dataset (pd.DataFrame): DataFrame with columns 'RegionCharacteristics', 'TravelModes', 'Period', 
+            and the specified column for the y-axis.
+        column (str): Column name to display on the y-axis.
+        yaxis_name (str): Label for the y-axis.
+
+    Returns:
+        None: Displays an animated bar plot with play and pause controls.
+
+    """
 
     # Define the correct order for 'RegionCharacteristics'
     urbanization_order = ['Not urbanised', 'Hardly urbanised', 'Moderately urbanised', 'Strongly urbanised', 'Extremely urbanised']
