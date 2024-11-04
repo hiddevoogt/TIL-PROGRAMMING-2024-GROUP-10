@@ -129,6 +129,11 @@ def make_named_clean_dataset(dataset_unnamed):
     for col in numeric_columns:
         data[col] = pd.to_numeric(data[col], errors='coerce')
 
+    data = data[data['RegionCharacteristics'].str.contains('urbanised', case=False, na=False)]
+
+    # Replace 'value' with the specific value you're looking for
+    data = data[(data['Margins'] == 'Value') & (data['Population'] == 'Population 6 years or older') ]
+
     clean_data = data.dropna()
     print("Named And Cleaned Data After Dropping Missing Values:", clean_data.shape, "\n")
 
