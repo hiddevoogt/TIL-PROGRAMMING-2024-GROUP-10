@@ -21,9 +21,10 @@ def make_named_clean_dataset(dataset_unnamed):
         - Retains data with "urbanised" in the 'RegionCharacteristics' column.
         - Drops rows with missing values and returns the cleaned DataFrame.
     """
-
+    
     data = dataset_unnamed
 
+    # Map travelmotives
     travel_motives_mapping = {
         "2030170": "Travel to/from work, (non)-daily commute",
         "2030190": "Services/care",
@@ -37,11 +38,13 @@ def make_named_clean_dataset(dataset_unnamed):
         "T001080": "Total"
     }
 
+    # Map population
     population_mapping = {
         "A048710": "Population 6 years or older",
         "A048709": "Population: 12 years or older"
     }
 
+    # Map tavelmodes
     travel_modes_mapping = {
         "T001093": "Total",
         "A048583": "Passenger car (driver)",
@@ -53,12 +56,14 @@ def make_named_clean_dataset(dataset_unnamed):
         "A018986": "Other"
     }
 
+    # Map margins
     margins_mapping = {
         "MW00000": "Value",
         "MOG0095": "Lower bound 95% confidence interval",
         "MBG0095": "Upper bound 95% confidence interval"
     }
 
+    # Map regions
     region_char_mapping = {
         "NL01    ": "The Netherlands",
         "LD01    ": "Noord-Nederland (LD)",
@@ -84,6 +89,7 @@ def make_named_clean_dataset(dataset_unnamed):
         "1019052 ": "Not urbanised"
     }
 
+    # Map periods
     periods_mapping = {
         "2018JJ00": "2018",
         "2019JJ00": "2019",
@@ -93,6 +99,7 @@ def make_named_clean_dataset(dataset_unnamed):
         "2023JJ00": "2023"
     }
 
+    # Map the column names
     data.rename(columns={
         "TravelMotives": "TravelMotivesCode",
         "Population": "PopulationCode",
@@ -108,8 +115,8 @@ def make_named_clean_dataset(dataset_unnamed):
         "TimeTravelled_6": "Time_Travelled_Hours_Per_Year"
     }, inplace=True)
 
+    # Map the columns with the difined maps
     data['TravelMotives'] = data['TravelMotivesCode'].map(travel_motives_mapping)
-
 
     data['Population'] = data['PopulationCode'].map(population_mapping)
 
@@ -150,7 +157,7 @@ def make_named_clean_dataset(dataset_unnamed):
 
     data = data[data['RegionCharacteristics'].str.contains('urbanised', case=False, na=False)]
 
-    # Replace 'value' with the specific value you're looking for
+    # Only keep the values and only show population of 6 years and older
     data = data[(data['Margins'] == 'Value') & (data['Population'] == 'Population 6 years or older') ]
 
     clean_data = data.dropna()

@@ -1,6 +1,3 @@
-#function 1
-
-
 def trips_per_year_total_and_period(data):  
 
     """
@@ -29,9 +26,8 @@ def trips_per_year_total_and_period(data):
     plt.legend(bbox_to_anchor=(1.05, 1), loc='upper left', borderaxespad=0)
     plt.show()
 
-#function 2
 def trips_per_yearby_travel_mode_and_period(data):
-    
+
     """
     Generates a bar plot showing trips per year by travel mode and period.
 
@@ -59,7 +55,6 @@ def trips_per_yearby_travel_mode_and_period(data):
     plt.legend(bbox_to_anchor=(1.05, 1), loc='upper left', borderaxespad=0)
     plt.show()
 
-#function 3
 def line_plot_trips(data): 
 
     """
@@ -88,7 +83,6 @@ def line_plot_trips(data):
     plt.legend(bbox_to_anchor=(1.05, 1), loc='upper left', borderaxespad=0)
     plt.show()
 
-#function 4
 def area_chart_trips(data): 
 
     """

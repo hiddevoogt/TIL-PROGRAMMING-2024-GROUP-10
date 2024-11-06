@@ -1,7 +1,7 @@
 
 # This function defines the graphs that are used for measuring the effect of covid on travel hours over different levels of urbanisation
 
-def plot_travelminutes():
+def plot_travelhours():
     import pandas as pd
     import plotly.express as px
 
@@ -19,7 +19,7 @@ def plot_travelminutes():
         - The line plot shows the yearly travel time trend by urbanization level.
         - The heatmap visualizes travel time distribution by period and region characteristics.
     """
-    
+
     df = pd.read_csv("values_named_clean_mobility_data.csv")
 
     # Group the data for the line plot
@@ -39,6 +39,7 @@ def plot_travelminutes():
         title="Lineplot: Travel Time Over Time by Region",
         markers=True
     )
+
     # Layout of graph
     fig.update_layout(
         title_font=dict(size=20),
@@ -50,12 +51,10 @@ def plot_travelminutes():
         font=dict(family="Arial", size=14)
     )
     
+    # Show plot
     fig.show()
 
-
-
     # Code for heatmap
-
 
     # Fitting the code for the heatmap
     heatmap_data = travelmode_animation.pivot(index='RegionCharacteristics', columns='Period', values='Time_Travelled_Hours_Per_Year')
@@ -64,8 +63,9 @@ def plot_travelminutes():
                     labels=dict(x="Period", y="RegionCharacteristics", color="Travel Time (hours/year)"), 
                     aspect="auto", title = "Heatmap: Travel Time Over Time by Region")
     
-    #Layout of the lineplot
+    # Layout of the lineplot
     fig.update_layout(title_font=dict(size=20), font=dict(family="Arial", size=14),
         title_x=0.5,)
 
+    # Show plot
     fig.show()

@@ -1,5 +1,6 @@
 import pandas as pd
 import plotly.express as px
+
 def passenger_km_plot(df):
     
     """
@@ -12,7 +13,7 @@ def passenger_km_plot(df):
     Returns:
         None: Displays a line plot for passenger kilometers per year by urbanization level.
     """
-
+    # Select data that is needed for the plot.
     df_total = df[
         (df['Population'] == 'Population 6 years or older') &
         (df['TravelMotives'] == 'Total') &
@@ -20,10 +21,11 @@ def passenger_km_plot(df):
         (df['Margins'] == 'Value')
     ].copy()
 
+    # Concvert columns to numeric
     df_total['Period'] = pd.to_numeric(df_total['Period'])
     df_fig = df_total[['Period', 'RegionCharacteristics', 'Distance_Travelled_PassengerKm_Per_Year']]
 
-
+    # Define the plot
     fig = px.line(
         df_fig,
         x='Period',
@@ -38,12 +40,14 @@ def passenger_km_plot(df):
         }
     )
 
+    # Update plot layout
     fig.update_layout(
         legend_title_text='Urbanization Level',
         legend=dict(x=1.05, y=1),
         margin=dict(t=50, b=50, l=50, r=50)
     )
 
+    # Show plot
     fig.show()
 
 def passenger_prop_plot(df):
@@ -58,7 +62,8 @@ def passenger_prop_plot(df):
     Returns:
         None: Displays an area plot for passenger kilometers per day by urbanization level.
     """
-    
+
+    # Select data
     df_total = df[
         (df['Population'] == 'Population 6 years or older') &
         (df['TravelMotives'] == 'Total') &
@@ -66,10 +71,13 @@ def passenger_prop_plot(df):
         (df['Margins'] == 'Value')
     ].copy()
 
+    # Convert to numeric
     df_total['Period'] = pd.to_numeric(df_total['Period'])
 
+    # Select data
     df_fig = df_total[['Period', 'RegionCharacteristics', 'Distance_Travelled_PassengerKm_Per_Day']]
 
+    # Define plot
     fig2 = px.area(
         df_fig,
         x='Period',
@@ -82,7 +90,8 @@ def passenger_prop_plot(df):
             'RegionCharacteristics': 'Urbanization Level'
         }
     )
-
+ 
+    # Update layout
     fig2.update_layout(
         legend_title_text='Urbanization Level',
         legend=dict(x=1.05, y=1),

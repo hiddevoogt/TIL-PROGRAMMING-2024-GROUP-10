@@ -26,14 +26,10 @@ def generate_map(filepath):
     # Load Gemeenten shapefile
     gemeenten = gpd.read_file(filepath)
 
-    # Set CRS if not defined and convert to EPSG:28992
+    # Set CRS if not defined and convert to EPSG:4326 that is needed for chloropleth map
     if gemeenten.crs is None:
         gemeenten = gemeenten.set_crs(epsg=4326)
     gemeenten = gemeenten.to_crs(epsg=4326)
-
-    # Handle missing 'STED' values if necessary
-    # For example, fill NaN with a default value or remove such rows
-    gemeenten['STED'] = gemeenten['STED'].fillna(0)  # Example: fill NaN with 0
 
     # Filter gemeenten based on 'STED' values between 0 and 5 inclusive
     gemeenten_filtered = gemeenten[(gemeenten['STED'] >= 0) & (gemeenten['STED'] <= 5)].copy()
@@ -45,7 +41,7 @@ def generate_map(filepath):
     for feature in gemeenten_geojson['features']:
         feature['id'] = feature['properties']['GM_CODE']
 
-    # Create the choropleth map with Plotly
+    # Create the choropleth map with plotly
     fig = px.choropleth_mapbox(
         gemeenten_filtered,
         geojson=gemeenten_geojson,

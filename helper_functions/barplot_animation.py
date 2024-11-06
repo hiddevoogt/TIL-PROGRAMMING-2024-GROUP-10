@@ -43,7 +43,7 @@ def barplotanimation(dataset, column, yaxis_name):
                         'RegionCharacteristics': 'Urbanization level'},  # Custom y-axis label                
                 )  # Order categories)  # Group bars next to each other
 
-    # Adjust the animation speed (e.g., 2000 milliseconds per frame)
+    # Adjust the animation speed
     fig.update_layout(
     updatemenus=[{
         'type': 'buttons',
